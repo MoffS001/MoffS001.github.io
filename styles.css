@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/Images/BGImage.png');
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-y: auto; /* Allows the content to scroll when necessary */
+  }
+  
+  .header-bar {
+    position: fixed; /* Stays fixed at the top of the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Ensures the bar appears above other elements */
+  }
+  
+  .button {
+    padding: 8px 20px;
+    border: none;
+    background-color: #ffffff; /* Updated the background color to white */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .boxes {
+    padding-top: 70px; /* Ensures the taller boxes don't overlap with the header bar */
+  }
+  
+  .box {
+    position: relative; /* Required for pseudo-element positioning */
+    z-index: 0; /* Ensures the box content appears above the pseudo-element */
+    margin: 20px;
+    height: 300px; /* Updated height of the boxes */
+    border-radius: 16px; /* Increased border radius for a smoother look */
+    background-color: rgba(255, 255, 255, 1); /* White color applied to the box itself */
+    overflow: hidden; /* Clips the blur effect to the box boundaries */
+  }
+  
+  .box::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Adjusted the top and left positions to cover the entire box */
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background-image: url('/Images/BGImage.png');
+    background-size: cover;
+    background-attachment: fixed;
+    filter: blur(8px); /* Blurs the background behind the box */
+    z-index: -1; /* Places the pseudo-element below the box content */
+    opacity: 0.7; /* Adjust the opacity for the glass-like effect */
+  }
+  
+  .box-content {
+    position: relative; /* Added position relative for proper stacking */
+    padding: 40px;
+    z-index: 1; /* Ensures the box content appears above the pseudo-element */
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
